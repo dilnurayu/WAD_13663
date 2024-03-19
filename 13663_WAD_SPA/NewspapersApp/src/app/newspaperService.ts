@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class EventService {
+export class NewspaperService {
   constructor(private httpClient: HttpClient) {}
 
   GetAllNewspapers(): Observable<Newspaper[]> {
