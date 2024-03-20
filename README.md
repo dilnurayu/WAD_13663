@@ -1,4 +1,6 @@
-# WAD_13663
+This application was developed for WebApplication module, as coursework portfolio project @ WIUT by student ID: 00013663
+
+
 Web Application - Newspapers App 
 This repository contains the codebase for a Newspapers web application developed as part of coursework 13663 for the Web Application Development module. The application consists of two main components:
 
