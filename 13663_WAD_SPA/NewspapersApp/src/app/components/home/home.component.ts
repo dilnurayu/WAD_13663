@@ -17,7 +17,7 @@ import { DatePipe } from '@angular/common';
 })
 export class HomeComponent {
   items: Newspaper[] = [];
-  displayedColumns = ['ID', 'Title', 'Issue No', 'Description', 'Publisher Name'];
+  displayedColumns = ['ID', 'Issue No', 'Title', 'Description', 'Publisher Name','Actions'];
 
   constructor(
     private router: Router,
@@ -31,7 +31,7 @@ export class HomeComponent {
     });
   }
 
-  navigateToDetails(id: number) {
+  DetailsClicked(id: number) {
     this.router.navigateByUrl(`/details/${id}`);
   }
 
@@ -40,22 +40,24 @@ export class HomeComponent {
     this.router.navigateByUrl('/edit/' + id);
   }
   DeleteClicked(id: number) {
-    console.log(id, 'From Delete');
+    this.router.navigateByUrl('/delete/' + id);
+    // console.log(id, 'From Delete');
 
-    const confirmDelete = confirm(
-      'Are you sure you want to delete this event?'
-    );
-    if (confirmDelete) {
-      console.log(id, 'From Delete');
-      this.newspaperService.DeleteNewspaper(id).subscribe(
-        () => {
-          console.log('Event deleted successfully');
-          this.items = this.items.filter((item) => item.id !== id);
-        },
-        (error) => {
-          console.error('Error deleting event:', error);
-        }
-      );
-    }
+    // const confirmDelete = confirm(
+    //   'Are you sure you want to delete this event?'
+    // );
+
+    // if (confirmDelete) {
+    //   console.log(id, 'From Delete');
+    //   this.newspaperService.DeleteNewspaper(id).subscribe(
+    //     () => {
+    //       console.log('Event deleted successfully');
+    //       this.items = this.items.filter((item) => item.id !== id);
+    //     },
+    //     (error) => {
+    //       console.error('Error deleting event:', error);
+    //     }
+    //   );
+    // }
   }
 }

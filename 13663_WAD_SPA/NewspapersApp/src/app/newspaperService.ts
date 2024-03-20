@@ -6,38 +6,37 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class EventService {
+export class NewspaperService {
   constructor(private httpClient: HttpClient) {}
 
   GetAllNewspapers(): Observable<Newspaper[]> {
-    return this.httpClient.get<Newspaper[]>('https://localhost:7240/api/Newspapers');
+    return this.httpClient.get<Newspaper[]>('https://localhost:7240/api/Newspapers/GetAll');
   }
 
   GetById(id: number): Observable<Newspaper> {
     return this.httpClient.get<Newspaper>(
-      'https://localhost:7240/api/Newspapers' + id
+      'https://localhost:7240/api/Newspapers/GetById/ ' + id
     );
   }
 
   AddNewspaper(item: Newspaper): Observable<Newspaper> {
     return this.httpClient.post<Newspaper>(
-      'https://localhost:7240/api/Newspapers',
+      'https://localhost:7240/api/Newspapers/PostNewspaper ',
       item
     );
   }
 
-  UpdateNewspaper(id: number, item: Newspaper): Observable<Newspaper> {
+  UpdateNewspaper(id: number, item: Newspaper) {
     return this.httpClient.put<Newspaper>(
-      `https://localhost:7240/api/Newspapers${id}`,
-      item
+      `https://localhost:7240/api/Newspapers/PutNewspaper/${id}`, item
     );
   }
 
-  DeleteNewspaper(id: number): Observable<any> {
-    return this.httpClient.delete('https://localhost:7240/api/Newspapers' + id);
+  DeleteNewspaper(id: number) {
+    return this.httpClient.delete('https://localhost:7240/api/Newspapers/DeleteNewspaper/' + id);
   }
 
-  GetAllPublishers(): Observable<any> {
-    return this.httpClient.get<any>('https://localhost:7240/api/Publishers');
+  GetAllPublishers() {
+    return this.httpClient.get('https://localhost:7240/api/Publishers/GetAll')
   }
 }
