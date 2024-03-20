@@ -37,7 +37,7 @@ export class NewspaperService {
     return this.httpClient.delete('https://localhost:7240/api/Newspapers' + id);
   }
 
-  GetAllPublishers(): Observable<any> {
-    return this.httpClient.get<any>('https://localhost:7240/api/Publishers');
+  GetAllPublishers() {
+    return this.httpClient.get<Newspaper[]>('https://localhost:7240/api/Publishers')
   }
 }

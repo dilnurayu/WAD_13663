@@ -1,0 +1,38 @@
+<div class="p-8 mt-8 flex justify-center">
+    <form class="shadow border w-4/12 p-4">
+        <div class="flex">
+            <mat-form-field class="w-full">
+                <mat-label>Title </mat-label>
+                <input matInput name="Title" type="text" [(ngModel)]="createNewspaper.title">
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-form-field class="w-full">
+                <mat-label>IssueNo </mat-label>
+                <input matInput name="Issue No" type="number" [(ngModel)]="createNewspaper.issueNo">
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-form-field class="w-full">
+                <mat-label>Description </mat-label>
+                <input matInput name="Description" type="text" [(ngModel)]="createNewspaper.description">
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-form-field class="w-full">
+                <mat-label>Choose Publisher </mat-label>
+                <mat-select [(ngModel)]="cID" name="Publisher">
+                    @for(c of cate; track c)
+                    {
+                    <mat-option [value]="c.id">{{c.fullName}}</mat-option>
+                    }
+                </mat-select>
+
+            </mat-form-field>
+        </div>
+        <div class="flex justify-center">
+            <button mat-raised-button color="primary" (click)="create()">Create</button>
+        </div>
+    </form>
+</div>
+

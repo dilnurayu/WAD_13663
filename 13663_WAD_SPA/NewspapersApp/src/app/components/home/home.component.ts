@@ -17,7 +17,7 @@ import { DatePipe } from '@angular/common';
 })
 export class HomeComponent {
   items: Newspaper[] = [];
-  displayedColumns = ['ID', 'Title', 'Issue No', 'Description', 'Publisher Name'];
+  displayedColumns = ['ID', 'Issue No', 'Title', 'Description', 'Publisher Name'];
 
   constructor(
     private router: Router,
@@ -45,6 +45,7 @@ export class HomeComponent {
     const confirmDelete = confirm(
       'Are you sure you want to delete this event?'
     );
+
     if (confirmDelete) {
       console.log(id, 'From Delete');
       this.newspaperService.DeleteNewspaper(id).subscribe(
