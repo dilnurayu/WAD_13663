@@ -1,19 +1,19 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule} from '@angular/material/chips'
 import { MatButtonModule } from '@angular/material/button';
 
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { NewspaperService } from '../../newspaperService';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
-
+import { BrowserModule } from '@angular/platform-browser';
 @Component({
   selector: 'app-create',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatButtonModule, MatChipsModule ],
+  imports: [FormsModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatButtonModule, MatChipsModule  ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.css'
 })
@@ -39,7 +39,7 @@ export class CreateComponent {
   }
 
   ngOnInit() {
-    console.log(this.cate);
+    
     this.newspaperService.GetAllPublishers().subscribe((result) => {
       this.cate = result;
 

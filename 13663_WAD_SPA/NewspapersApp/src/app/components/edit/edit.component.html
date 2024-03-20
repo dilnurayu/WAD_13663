@@ -3,26 +3,26 @@
         <div class="flex">
             <mat-form-field class="w-full">
                 <mat-label>Title </mat-label>
-                <input matInput name="Title" type="text" [(ngModel)]="createNewspaper.title">
+                <input matInput name="title" type="text" [(ngModel)]="editNews.title">
             </mat-form-field>
         </div>
         <div class="flex">
             <mat-form-field class="w-full">
                 <mat-label>IssueNo </mat-label>
-                <input matInput name="Issue No" type="number" [(ngModel)]="createNewspaper.issueNo">
+                <input matInput name="issueNo" type="number" [(ngModel)]="editNews.issueNo">
             </mat-form-field>
         </div>
         <div class="flex">
             <mat-form-field class="w-full">
                 <mat-label>Description </mat-label>
-                <input matInput name="Description" type="text" [(ngModel)]="createNewspaper.description">
+                <input matInput name="description" type="text" [(ngModel)]="editNews.description">
             </mat-form-field>
         </div>
         <div class="flex">
             <mat-form-field class="w-full">
                 <mat-label>Choose Publisher</mat-label>
-                <mat-select [(ngModel)]="cID" name="Publisher">
-                    @for(c of cate; track c)
+                <mat-select [(ngModel)]="cID" [(value)]="selected" name="Publisher">
+                    @for(c of categoryObject; track c)
                     {
                     <mat-option [value]="c.id">{{c.fullName}}</mat-option>
                     }
@@ -30,9 +30,11 @@
 
             </mat-form-field>
         </div>
-        <div class="flex justify-center">
-            <button mat-raised-button color="primary" (click)="create()">Create</button>
+        <div class="flex justify-around">
+            <button mat-raised-button  (click)="toHome()">Cancel</button>
+            <button mat-raised-button color="primary" (click)="edit()">Edit</button>
         </div>
     </form>
 </div>
+
 

@@ -3,12 +3,11 @@
     flex: 1 1 auto;
   }
 
-  .flex {
+  .flex-1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: rgb(25, 84, 11);
   }
   
-  .buttonCreate {
-    align-items: right ;
-  }
+  
